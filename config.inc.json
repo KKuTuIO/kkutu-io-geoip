@@ -1,0 +1,6 @@
+{
+  "MAXMIND_MMDB_PATH": "./GeoLite2-Country.mmdb",
+  "WATCH_FOR_UPDATES": true,
+  "API_KEY": "",
+  "API_PORT": 3000
+}
