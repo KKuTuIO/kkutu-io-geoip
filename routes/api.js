@@ -24,9 +24,7 @@ router.get('/:ip/:key', (req, res, next) => {
             "status": 200,
             "message": "OK",
             "geoLocation": {
-                "country": geoLocation.country.iso_code,
-                "country_registered": geoLocation.registered_country.iso_code,
-                "continent": geoLocation.country.continent
+                "country": geoLocation.country
             }
         })
         console.log(`GET /lookup from ${req.params.ip}, ${geoLocation.country.iso_code}`)
