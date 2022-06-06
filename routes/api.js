@@ -18,7 +18,7 @@ router.get('/lookup', (req, res, next) => {
     if(req.params.key != config.API_KEY) return res.json(invalidMsg)
     if(!req.params.ip) return res.json(invalidMsg)
 
-    const geoLocation = geoip.get(req.params.ip)
+    const geoLocation = geoip.lookup(req.params.ip)
     res.json({
         "status": 200,
         "message": "OK",
