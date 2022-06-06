@@ -8,6 +8,6 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use('/', apiService)
+app.use('/lookup', apiService)
 
 module.exports = app

@@ -12,7 +12,7 @@ const invalidMsg = {
     }
 }
 
-router.get('/lookup/:ip/:key', (req, res, next) => {
+router.get('/:ip/:key', (req, res, next) => {
     try {
         if(!req) return res.error(400)
         if(!req.params) return res.json(invalidMsg)
