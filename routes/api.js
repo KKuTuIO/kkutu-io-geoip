@@ -16,9 +16,9 @@ router.get('/lookup', (req, res, next) => {
     if(!req) return res.error(400)
     if(!req.headers || !req.params) return res.json(invalidMsg)
     if(req.params.key != config.API_KEY) return res.json(invalidMsg)
-    if(!req.headers["True-Client-IP"]) return res.json(invalidMsg)
+    if(!req.params.ip) return res.json(invalidMsg)
 
-    const geoLocation = geoip.get(req.headers["True-Client-IP"])
+    const geoLocation = geoip.get(req.params.ip)
     res.json({
         "status": 200,
         "message": "OK",
@@ -28,7 +28,7 @@ router.get('/lookup', (req, res, next) => {
             "continent": geoLocation.country.continent
         }
     })
-    console.log(`GET /lookup from ${req.headers["True-Client-IP"]}, ${geoLocation.country.iso_code}`)
+    console.log(`GET /lookup from ${req.params.ip}, ${geoLocation.country.iso_code}`)
 })
 
 module.exports = router
