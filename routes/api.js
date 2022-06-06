@@ -14,7 +14,7 @@ const invalidMsg = {
 
 router.get('/lookup', (req, res, next) => {
     if(!req) return res.error(400)
-    if(!req.headers || !req.params) return res.json(invalidMsg)
+    if(!req.params) return res.json(invalidMsg)
     if(req.params.key != config.API_KEY) return res.json(invalidMsg)
     if(!req.params.ip) return res.json(invalidMsg)
 
